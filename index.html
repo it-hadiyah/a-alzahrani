@@ -64,6 +64,15 @@ header.nav.scrolled{border-color:var(--line);box-shadow:0 6px 24px rgba(15,77,62
 .nav nav a:hover{color:var(--ink);background:var(--mint)}
 .nav nav a[aria-current="true"]{color:var(--ink);background:var(--mint)}
 .nav .btn{padding:9px 22px;font-size:15px}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.btn-platform{background:linear-gradient(135deg,var(--teal-light),var(--teal));color:var(--ink-3);box-shadow:0 6px 18px rgba(31,182,168,.35);position:relative;overflow:hidden}
+.btn-platform::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(120%);animation:shine 4.5s ease-in-out infinite}
+@keyframes shine{0%,60%{transform:translateX(120%)}100%{transform:translateX(-120%)}}
+.btn-platform:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(31,182,168,.5)}
+.btn-platform .dot{width:8px;height:8px;border-radius:50%;background:var(--ink);animation:ping 2.2s infinite}
+.btn-platform svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+.btn-platform:hover svg{transform:translate(-3px,-3px)}
+.nav-actions .btn{padding:9px 22px;font-size:15px;white-space:nowrap}
 .hamb{display:none;width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;flex-direction:column;gap:5px}
 .hamb span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
 .nav.open .hamb span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -290,7 +299,9 @@ footer .bar2{height:10px;background:linear-gradient(90deg,var(--teal) 0 40%,var(
   .hamb{display:flex}
   .nav nav{position:absolute;top:76px;inset-inline:0;background:var(--paper);flex-direction:column;padding:12px 22px 20px;border-bottom:1px solid var(--line);display:none}
   .nav.open nav{display:flex}
-  .nav .btn{display:none}
+  .nav-actions .btn-dark{display:none}
+  .nav-actions .btn{padding:8px 14px;font-size:13.5px;gap:6px}
+  .nav .wrap{gap:10px}
   .flow{grid-template-columns:1fr;gap:34px}.flow .line{display:none}
   .node{display:grid;grid-template-columns:88px 1fr;gap:18px;text-align:start;align-items:center}
   .node .disc{margin:0}.node p{margin:0}
@@ -317,11 +328,14 @@ footer .bar2{height:10px;background:linear-gradient(90deg,var(--teal) 0 40%,var(
       <a href="#about">عن سومنيا</a>
       <a href="#features">ما تقدمه</a>
       <a href="#night">ليلة مع سومنيا</a>
-      <a href="#platform">المنصة</a>
+      <a href="#platform">المريض والطبيب</a>
       <a href="#how">كيف تعمل</a>
       <a href="#tone">نبرتنا</a>
     </nav>
-    <a class="btn btn-dark" href="#contact">تواصل معنا</a>
+    <div class="nav-actions">
+      <a class="btn btn-platform" href="https://somnia-care-demo.x2d26nz4rp.chatgpt.site/" target="_blank" rel="noopener noreferrer"><span class="dot" aria-hidden="true"></span>منصة سومنيا<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="btn btn-dark" href="#contact">تواصل معنا</a>
+    </div>
     <button class="hamb" id="hamb" aria-label="القائمة" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
